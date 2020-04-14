@@ -1,5 +1,5 @@
 export default {
-  title: 'Testfy',
+  title: 'Tesfy',
   base: './docs',
   menu: ['Getting Started', 'Components'],
   ignore: ['README.md']

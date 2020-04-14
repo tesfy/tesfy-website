@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box } from '@chakra-ui/core';
+import Logo from '../Logo';
 
 const Header = () => {
   return (
@@ -13,7 +14,7 @@ const Header = () => {
       height="62px"
     >
       <Box height="100%" paddingX="2" display="flex" alignItems="center">
-        Testfy
+        <Logo />
       </Box>
     </Box>
   );
