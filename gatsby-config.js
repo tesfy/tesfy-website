@@ -5,11 +5,20 @@ module.exports = {
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: /assets/ // See below to configure properly
         }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@': __dirname
+        },
+        extensions: []
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

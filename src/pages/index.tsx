@@ -1,38 +1,42 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Box, Divider, Grid } from '@chakra-ui/core';
+import { MdAccessibility, MdPalette, MdGrain } from 'react-icons/md';
 import Layout from '../components/Layout';
-import Logo from '../components/Logo';
-import { Text, Box, Button, Heading } from '@chakra-ui/core';
+import HomeBanner from '../components/HomeBanner';
+import HomeCode from '../components/HomeCode';
+import HomeFeature from '../components/HomeFeature';
 
 function IndexPage() {
   return (
     <Layout>
-      <Box
-        minH="320px"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        textAlign="center"
-      >
-        <Box maxW="lg">
-          <Box display="flex" justifyContent="center">
-            <Logo size="200px" />
-          </Box>
+      <Box maxW="lg" my={12} mx="auto">
+        <HomeBanner mb={8} />
 
-          <Text opacity={0.7} fontSize="lg" mt="4">
-            A lightweight A/B Testing and Feature Flag JavaScript library focused on performance ⚡️
-          </Text>
-
-          <Box mt="4">
-            <Button size="md" as={Link} to="/docs" variantColor="green" m={2}>
-              Get Started
-            </Button>
-            <Button as="a" size="md" m={2}>
-              GitHub
-            </Button>
-          </Box>
-        </Box>
+        <HomeCode />
       </Box>
+
+      <Divider />
+
+      <Grid
+        templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
+        gap={10}
+        px={{ md: 12 }}
+        my={12}
+      >
+        <HomeFeature icon={MdAccessibility} title="Accessible">
+          Chakra UI strictly follows WAI-ARIA standards. All components come with proper attributes
+          and keyboard interactions out of the box.
+        </HomeFeature>
+
+        <HomeFeature icon={MdPalette} title="Themeable">
+          Quickly and easily reference values from your theme throughout your entire application, on
+          any component.
+        </HomeFeature>
+        <HomeFeature icon={MdGrain} title="Composable">
+          Components were built with composition in mind. You can leverage any component to create
+          new things.
+        </HomeFeature>
+      </Grid>
     </Layout>
   );
 }

@@ -9190,6 +9190,11 @@ json-loader@^0.5.7:
   resolved "https://registry.yarnpkg.com/json-loader/-/json-loader-0.5.7.tgz#dca14a70235ff82f0ac9a3abeb60d337a365185d"
   integrity sha512-QLPs8Dj7lnf3e3QYS1zkCo+4ZwqOiF9d/nZnYozTISxXWCfNs9yuky5rJw4/W34s7POaNlbZmQGaB5NiXCbP4w==
 
+json-logic-js@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/json-logic-js/-/json-logic-js-1.2.2.tgz#e5c382aa6df25df485edead339869396c533afe8"
+  integrity sha1-5cOCqm3yXfSF7erTOYaTlsUzr+g=
+
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
@@ -10357,6 +10362,11 @@ multicast-dns@^6.0.1:
   dependencies:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
+
+murmurhash@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/murmurhash/-/murmurhash-0.0.2.tgz#6f07bd8a1105e709c26fc89420cb5930c24585fe"
+  integrity sha1-bwe9ihEF5wnCb8iUIMtZMMJFhf4=
 
 mute-stream@0.0.7, mute-stream@~0.0.4:
   version "0.0.7"
@@ -12455,6 +12465,13 @@ react-hot-loader@^4.12.20:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
+react-icons@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.9.0.tgz#89a00f20a0e02e6bfd899977eaf46eb4624239d5"
+  integrity sha512-gKbYKR+4QsD3PmIHLAM9TDDpnaTsr3XZeK1NTAb6WQQ+gxEdJ0xuCgLq0pxXdS7Utg2AIpcVhM1ut/jlDhcyNg==
+  dependencies:
+    camelcase "^5.0.0"
+
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.8.3"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.3.tgz#4ad8b029c2a718fc0cfc746c8d4e1b7221e5387d"
@@ -12465,7 +12482,7 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-live@^2.2.1:
+react-live@^2.2.1, react-live@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-live/-/react-live-2.2.2.tgz#834edf1c11204e49fa7468166316b2e70da1a6b0"
   integrity sha512-kJYAzKnPsR4oXleAX9lLsJA330BhTmSWHhr3ienZA2E/0eFDRodGl3I7sge8pp1vjc2K5Aaz73KpFUnV7Lq/DQ==
@@ -12525,6 +12542,13 @@ react-spring@^8.0.27:
   dependencies:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
+
+react-tesfy@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-tesfy/-/react-tesfy-1.0.0.tgz#9fd2e25b5e0599f1b857b4e0b264bca03b434625"
+  integrity sha512-piQQn0yYuqz7uOOJ6F09L7tkf34G9sUSKBp67Lr1+OIs98qlFyoEbSvTsYvWTx0jQaVdvtXFn0lvJrnJcTno7A==
+  dependencies:
+    tesfy "^1.0.0"
 
 react@^16.12.0, react@^16.8.0:
   version "16.12.0"
@@ -14552,6 +14576,14 @@ terser@^4.1.2:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+tesfy@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/tesfy/-/tesfy-1.0.0.tgz#ac300c38930deb9a690837864d7956808e0dc60b"
+  integrity sha512-koxBAEkJMJvBr+Bx2OnLi02uZz/NFztGOWxOZXrXok4iKHEHV+tCrdPkXM0y90gA/B/sB49hDmIEturSvqu7HA==
+  dependencies:
+    json-logic-js "^1.2.2"
+    murmurhash "^0.0.2"
 
 text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
