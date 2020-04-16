@@ -1,9 +1,12 @@
-import React from 'react';
-import { Box, IconButton } from '@chakra-ui/core';
+import React, { FC, ComponentProps } from 'react';
+import { useColorMode, Box, IconButton } from '@chakra-ui/core';
 import { DiGithubBadge } from 'react-icons/di';
 import LogoIcon from '@/assets/logo.svg';
 
-const Header = () => {
+const Header: FC<ComponentProps<typeof Box>> = props => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bgColor = { light: 'white', dark: 'gray.800' };
+
   return (
     <Box
       as="header"
@@ -13,8 +16,9 @@ const Header = () => {
       width="full"
       height="62px"
       zIndex={1}
-      backgroundColor="white"
+      backgroundColor={bgColor[colorMode]}
       boxShadow="sm"
+      {...props}
     >
       <Box
         paddingX="2"
@@ -27,11 +31,11 @@ const Header = () => {
 
         <Box>
           <IconButton
+            onClick={toggleColorMode}
             aria-label="rico"
             fontSize="24px"
             variant="ghost"
-            color="current"
-            ml="2"
+            mr="2"
             icon="sun"
             isRound
           />
@@ -43,7 +47,6 @@ const Header = () => {
             target="_blank"
             href="https://github.com/andresz1/tesfy"
             variant="ghost"
-            color="current"
             fontSize="24px"
             icon={DiGithubBadge}
             isRound
