@@ -1,14 +1,34 @@
 module.exports = {
+  siteMetadata: {
+    title: `Tesfy`,
+    description: `A lightweight A/B Testing and Feature Flag JavaScript library focused on performance`,
+    author: `@andresz1`
+  },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`
+      }
+    },
     `gatsby-plugin-typescript`,
-    `gatsby-theme-docz`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/Docs/DocsLayout.tsx')
+        }
+      }
+    },
     `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: /assets/ // See below to configure properly
+          include: /assets/
         }
       }
     },
@@ -21,8 +41,5 @@ module.exports = {
         extensions: []
       }
     }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ]
 };

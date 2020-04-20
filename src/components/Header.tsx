@@ -1,9 +1,10 @@
 import React, { FC, ComponentProps } from 'react';
+import { Link } from 'gatsby';
 import { useColorMode, Box, IconButton } from '@chakra-ui/core';
 import { DiGithubBadge } from 'react-icons/di';
 import LogoIcon from '@/assets/logo.svg';
 
-const Header: FC<ComponentProps<typeof Box>> = props => {
+const Header: FC<ComponentProps<typeof Box>> = ({ children, ...others }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = { light: 'white', dark: 'gray.800' };
 
@@ -18,7 +19,7 @@ const Header: FC<ComponentProps<typeof Box>> = props => {
       zIndex={1}
       backgroundColor={bgColor[colorMode]}
       boxShadow="sm"
-      {...props}
+      {...others}
     >
       <Box
         paddingX="2"
@@ -27,7 +28,9 @@ const Header: FC<ComponentProps<typeof Box>> = props => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Box as={LogoIcon} height="40px" width="auto" fill="green.500" />
+        <Link to="/">
+          <Box as={LogoIcon} height="40px" width="auto" fill="green.500" />
+        </Link>
 
         <Box>
           <IconButton
@@ -51,6 +54,8 @@ const Header: FC<ComponentProps<typeof Box>> = props => {
             icon={DiGithubBadge}
             isRound
           />
+
+          {children}
         </Box>
       </Box>
     </Box>

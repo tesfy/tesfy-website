@@ -1,7 +1,7 @@
 import React from 'react';
 import { useColorMode, Box, Text, Link } from '@chakra-ui/core';
 import { FiHeart } from 'react-icons/fi';
-import Container from '../Container';
+import Container from './Container';
 
 const Footer = () => {
   const { colorMode } = useColorMode();
