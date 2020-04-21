@@ -1,32 +1,52 @@
 import React, { FC, ComponentProps } from 'react';
-import { useLocation } from '@reach/router';
 import { Box } from '@chakra-ui/core';
 import DocsSideNavHeading from './DocsSideNavHeading';
 import DocsSideNavLink from './DocsSideNavLink';
 
-interface Section {
+export interface NavSection {
   menu: string | null;
   name: string;
   route: string;
   title: string;
+  order?: number;
+}
+
+export interface NavContent {
+  [key: string]: NavSection | Array<NavSection>;
 }
 
 interface Props {
-  sections: Array<Section>;
+  content: NavContent;
 }
 
-const DocsSideNavContent: FC<ComponentProps<typeof Box> & Props> = ({ sections }) => {
-  const { pathname } = useLocation();
-
+const DocsSideNavContent: FC<ComponentProps<typeof Box> & Props> = ({ content }) => {
   return (
     <Box as="nav" aria-label="Main navigation" fontSize="sm" p="6">
       <Box mb="10">
-        <DocsSideNavHeading>Components</DocsSideNavHeading>
-        {sections.map(({ route, name }) => (
-          <DocsSideNavLink key={route} display="block" to={route} isActive={pathname === route}>
-            {name}
-          </DocsSideNavLink>
-        ))}
+        {Object.keys(content).map(key => {
+          if (!Array.isArray(content[key])) {
+            const { name, route } = content[key] as NavSection;
+
+            return (
+              <DocsSideNavLink key={route} to={route}>
+                {name}
+              </DocsSideNavLink>
+            );
+          }
+
+          const sections = content[key] as Array<NavSection>;
+
+          return (
+            <>
+              <DocsSideNavHeading key={key}>{key}</DocsSideNavHeading>
+              {sections.map(({ name, route }) => (
+                <DocsSideNavLink key={route} to={route}>
+                  {name}
+                </DocsSideNavLink>
+              ))}
+            </>
+          );
+        })}
       </Box>
     </Box>
   );

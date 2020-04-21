@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Divider, Link, Grid } from '@chakra-ui/core';
 import { FiTrendingUp, FiShuffle, FiStar, FiUsers, FiCopy, FiDollarSign } from 'react-icons/fi';
 import HomeBanner from './HomeBanner';
-import HomeCode from './HomeCode';
+import HomeCodeBlock from './HomeCodeBlock';
 import HomeFeature from './HomeFeature';
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
       <Box maxW="lg" my={8} mx="auto">
         <HomeBanner mb={8} />
 
-        <HomeCode />
+        <HomeCodeBlock />
       </Box>
 
       <Divider />

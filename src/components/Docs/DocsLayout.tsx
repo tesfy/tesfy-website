@@ -1,42 +1,12 @@
 import React, { useState, FC } from 'react';
-import { MDXProvider } from '@mdx-js/react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Box, IconButton } from '@chakra-ui/core';
 import { FiMenu } from 'react-icons/fi';
 import Header from '../Header';
 import Container from '../Container';
 import DocsSideNav from './DocsSideNav';
-import DocsSideNavContent from './DocsSideNavContent';
+import DocsSideNavContent, { NavContent, NavSection } from './DocsSideNavContent';
 import DocsDrawer from './DocsDrawer';
-import H1 from '../MDX/H1';
-import H2 from '../MDX/H1';
-import H3 from '../MDX/H1';
-import P from '../MDX/P';
-import InlineCode from '../MDX/InlineCode';
-import CodeBlock from '../MDX/CodeBlock';
-import UL from '../MDX/UL';
-import LI from '../MDX/LI';
-import OL from '../MDX/OL';
-import Table from '../MDX/Table';
-import THead from '../MDX/THead';
-import TData from '../MDX/TData';
-import Layout from '../Layout';
-
-const components = {
-  h1: H1,
-  h2: H2,
-  h3: H3,
-  p: P,
-  ul: UL,
-  li: LI,
-  ol: OL,
-  table: Table,
-  th: THead,
-  td: TData,
-  code: CodeBlock,
-  inlineCode: InlineCode,
-  layout: Layout
-};
 
 const query = graphql`
   query MyQuery {
@@ -48,6 +18,7 @@ const query = graphql`
             name
             route
             title
+            order
           }
         }
       }
@@ -55,26 +26,71 @@ const query = graphql`
   }
 `;
 
+const MENU = ['JavaScript', 'React'];
+
 const DocsLayout: FC = ({ children }) => {
   const { allMdx } = useStaticQuery(query);
-  const sections = allMdx.edges.map(edge => edge.node.frontmatter);
   const [isOpen, setIsOpen] = useState(false);
+
+  const getSections = (): Array<NavSection> => {
+    return allMdx.edges.map((edge: Record<string, any>) => edge.node.frontmatter);
+  };
+
+  const getContent = (): NavContent => {
+    const sections = getSections();
+
+    return sections
+      .sort((prevSection, nextSection) => {
+        const prevIndex = MENU.indexOf(prevSection.menu || prevSection.name);
+        const nextIndex = MENU.indexOf(nextSection.menu || nextSection.name);
+
+        if (prevIndex === nextIndex) {
+          const { order: prevOrder = 0 } = prevSection;
+          const { order: nextOrder = 0 } = nextSection;
+
+          return nextOrder - prevOrder;
+        }
+
+        return prevIndex - nextIndex;
+      })
+      .reduce((map: NavContent, section: NavSection) => {
+        const { menu, name } = section;
+
+        if (!menu) {
+          return {
+            ...map,
+            [name]: section
+          };
+        }
+
+        const sections = (map[menu] || []) as Array<NavSection>;
+
+        return {
+          ...map,
+          [menu]: [...sections, section]
+        };
+      }, {});
+  };
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
+  const content = getContent();
+
   return (
     <>
       <Header>
-        <IconButton
-          display={{ sm: 'inline-flex', md: 'none' }}
-          aria-label="Navigation Menu"
-          fontSize="20px"
-          variant="ghost"
-          icon={FiMenu}
-          onClick={handleToggle}
-        />
+        <Box display={{ sm: 'inline-flex', md: 'none' }} ml={2}>
+          <IconButton
+            aria-label="Navigation Menu"
+            fontSize="24px"
+            variant="ghost"
+            icon={FiMenu}
+            onClick={handleToggle}
+            isRound
+          />
+        </Box>
       </Header>
 
       <DocsSideNav
@@ -83,17 +99,15 @@ const DocsLayout: FC = ({ children }) => {
         height="calc(100% - 62px)"
         maxWidth="18rem"
       >
-        <DocsSideNavContent sections={sections} />
+        <DocsSideNavContent content={content} />
       </DocsSideNav>
 
       <DocsDrawer isOpen={isOpen} onClose={handleToggle}>
-        <DocsSideNavContent sections={sections} />
+        <DocsSideNavContent content={content} />
       </DocsDrawer>
 
       <Box pt="62px" pl={[0, null, '18rem']}>
-        <Container maxWidth="46rem">
-          <MDXProvider components={components}>{children}</MDXProvider>
-        </Container>
+        <Container maxWidth="46rem">{children}</Container>
       </Box>
     </>
   );

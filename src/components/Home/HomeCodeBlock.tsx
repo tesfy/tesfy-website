@@ -45,7 +45,7 @@ const SAMPLE_CODE = `
   }
 `;
 
-const HomeCode = () => {
+const HomeCodeBlock = () => {
   return (
     <LiveProvider scope={{ ...Chakra, ...Tesfy }} language="tsx" theme={theme} code={SAMPLE_CODE}>
       <Box height="360px" maxHeight="360px" overflow="auto">
@@ -57,4 +57,4 @@ const HomeCode = () => {
   );
 };
 
-export default HomeCode;
+export default HomeCodeBlock;

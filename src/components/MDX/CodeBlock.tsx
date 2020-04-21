@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
 
 interface Props {
   className: string;
@@ -7,12 +8,10 @@ interface Props {
 }
 
 const CodeBlock: FC<Props> = ({ children, className }) => {
-  const language = className.replace(/language-/, '');
-
-  console.log(language);
+  const language = className.replace(/language-/, '') as Language;
 
   return (
-    <Highlight {...defaultProps} code={children} language={language}>
+    <Highlight {...defaultProps} theme={theme} code={children} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: '20px' }}>
           {tokens.map((line, i) => (

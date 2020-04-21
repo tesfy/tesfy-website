@@ -32,7 +32,7 @@ const Header: FC<ComponentProps<typeof Box>> = ({ children, ...others }) => {
           <Box as={LogoIcon} height="40px" width="auto" fill="green.500" />
         </Link>
 
-        <Box>
+        <Box display="flex">
           <IconButton
             onClick={toggleColorMode}
             aria-label="rico"
