@@ -28,7 +28,7 @@ const DocsSideNavContent: FC<ComponentProps<typeof Box> & Props> = ({ content })
             const { name, route } = content[key] as NavSection;
 
             return (
-              <DocsSideNavLink key={route} to={route}>
+              <DocsSideNavLink key={route} title={name} to={route}>
                 {name}
               </DocsSideNavLink>
             );
@@ -40,7 +40,7 @@ const DocsSideNavContent: FC<ComponentProps<typeof Box> & Props> = ({ content })
             <>
               <DocsSideNavHeading key={key}>{key}</DocsSideNavHeading>
               {sections.map(({ name, route }) => (
-                <DocsSideNavLink key={route} to={route}>
+                <DocsSideNavLink key={route} title={`${name} - ${key}`} to={route}>
                   {name}
                 </DocsSideNavLink>
               ))}

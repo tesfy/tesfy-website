@@ -40,6 +40,7 @@ module.exports = {
         },
         extensions: []
       }
-    }
+    },
+    `gatsby-plugin-manifest`
   ]
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Divider, Link, Grid } from '@chakra-ui/core';
 import { FiTrendingUp, FiShuffle, FiStar, FiUsers, FiCopy, FiDollarSign } from 'react-icons/fi';
+import SEO from '../SEO';
 import HomeBanner from './HomeBanner';
 import HomeCodeBlock from './HomeCodeBlock';
 import HomeFeature from './HomeFeature';
@@ -8,6 +9,8 @@ import HomeFeature from './HomeFeature';
 const HomePage = () => {
   return (
     <>
+      <SEO title="A/B Testing and Feature Flag" />
+
       <Box maxW="lg" my={8} mx="auto">
         <HomeBanner mb={8} />
 
