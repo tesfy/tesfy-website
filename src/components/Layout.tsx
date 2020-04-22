@@ -6,7 +6,7 @@ import Footer from './Footer';
 const Layout: FC = ({ children }) => {
   return (
     <>
-      <Header />
+      <Header height="62px" />
 
       <Container pt="62px">{children}</Container>
 

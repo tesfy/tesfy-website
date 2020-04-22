@@ -82,7 +82,7 @@ const DocsLayout: FC = ({ children }) => {
 
   return (
     <>
-      <Header>
+      <Header height="62px">
         <Box display={{ sm: 'inline-flex', md: 'none' }} ml={2}>
           <IconButton
             aria-label="Navigation Menu"

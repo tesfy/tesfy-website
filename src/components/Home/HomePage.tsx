@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Divider, Link, Grid } from '@chakra-ui/core';
+import { Box, Divider, Link, Grid, Heading, Text } from '@chakra-ui/core';
 import { FiTrendingUp, FiShuffle, FiStar, FiUsers, FiCopy, FiDollarSign } from 'react-icons/fi';
+import { DiJsBadge, DiReact } from 'react-icons/di';
 import SEO from '../SEO';
 import HomeBanner from './HomeBanner';
 import HomeCodeBlock from './HomeCodeBlock';
@@ -15,6 +16,49 @@ const HomePage = () => {
         <HomeBanner mb={8} />
 
         <HomeCodeBlock />
+      </Box>
+
+      <Divider />
+
+      <Box my={8}>
+        <Grid
+          templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+          gap={10}
+          px={{ md: 12 }}
+          textAlign="center"
+        >
+          <Heading>The mission</Heading>
+          <Text>
+            Provide a library of{' '}
+            <Text as="b" color="green.500">
+              easy use
+            </Text>{' '}
+            and{' '}
+            <Text as="b" color="green.500">
+              configuration
+            </Text>
+            . Where the whole community can contribute to make it better every day. And additionally
+            provide the{' '}
+            <Text as="b" color="green.500">
+              best performance
+            </Text>
+            .
+          </Text>
+        </Grid>
+
+        <Box mt={4} display="flex" flexDirection="column" alignItems="center">
+          <Heading>Supports</Heading>
+
+          <Grid
+            mt={6}
+            gap={10}
+            maxWidth="300px"
+            templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+          >
+            <Box as={DiJsBadge} mr={4} color="green.500" size="82px" />
+            <Box as={DiReact} color="green.500" size="82px" />
+          </Grid>
+        </Box>
       </Box>
 
       <Divider />

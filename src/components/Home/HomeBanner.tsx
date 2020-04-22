@@ -1,6 +1,7 @@
 import React, { FC, ComponentProps } from 'react';
 import { Link } from 'gatsby';
-import { Box, Text, Button } from '@chakra-ui/core';
+import { Box, Text, Button, Heading } from '@chakra-ui/core';
+import { FiGithub } from 'react-icons/fi';
 import LogoIcon from '@/assets/logo.svg';
 
 const HomeBanner: FC<ComponentProps<typeof Box>> = props => {
@@ -10,12 +11,18 @@ const HomeBanner: FC<ComponentProps<typeof Box>> = props => {
         <Box as={LogoIcon} height="100px" width="auto" fill="green.500" />
       </Box>
 
-      <Text opacity={0.7} fontSize="lg" mt="4">
-        A lightweight A/B Testing and Feature Flag JavaScript library focused on performance ⚡️
-      </Text>
+      <Box my={4}>
+        <Heading as="h1" size="lg" color="grey.500" fontWeight="bold">
+          A/B Testing and Feature Flag
+        </Heading>
 
-      <Box mt="4">
-        <Button size="md" as={Link} to="/docs" variantColor="green" m={2} isRound>
+        <Text opacity={0.7} fontSize="lg">
+          JavaScript library focused on performance ⚡️
+        </Text>
+      </Box>
+
+      <Box mt={6}>
+        <Button as={Link} to="/docs" mx={2} size="md" variantColor="green" isRound>
           Get Started
         </Button>
         <Button
@@ -23,10 +30,11 @@ const HomeBanner: FC<ComponentProps<typeof Box>> = props => {
           rel="noopener noreferrer"
           target="_blank"
           href="https://github.com/andresz1/tesfy"
+          mx={2}
+          size="md"
           variant="outline"
           variantColor="green"
-          size="md"
-          m={2}
+          leftIcon={FiGithub}
         >
           GitHub
         </Button>
