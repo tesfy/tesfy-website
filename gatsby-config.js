@@ -41,6 +41,7 @@ module.exports = {
         extensions: []
       }
     },
-    `gatsby-plugin-manifest`
+    `gatsby-plugin-manifest`,
+    `gatsby-plugin-remove-trailing-slashes`
   ]
 };
