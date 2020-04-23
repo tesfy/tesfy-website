@@ -18,6 +18,7 @@ const DocsSideNavLink: FC<ComponentProps<typeof Box> & ComponentProps<typeof Lin
 
       <Box
         as={Link}
+        aria-current={isActive ? 'page' : undefined}
         display="block"
         fontSize="sm"
         color={isActive ? 'green.500' : 'gray.400'}
