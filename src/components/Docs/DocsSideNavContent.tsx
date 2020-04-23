@@ -1,19 +1,8 @@
 import React, { FC, ComponentProps } from 'react';
 import { Box } from '@chakra-ui/core';
+import { NavContent, NavSection } from './useDocsNav';
 import DocsSideNavHeading from './DocsSideNavHeading';
 import DocsSideNavLink from './DocsSideNavLink';
-
-export interface NavSection {
-  menu: string | null;
-  name: string;
-  route: string;
-  title: string;
-  order?: number;
-}
-
-export interface NavContent {
-  [key: string]: NavSection | Array<NavSection>;
-}
 
 interface Props {
   content: NavContent;

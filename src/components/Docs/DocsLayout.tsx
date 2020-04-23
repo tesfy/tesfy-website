@@ -1,84 +1,22 @@
 import React, { useState, FC } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { Box, IconButton } from '@chakra-ui/core';
 import { FiMenu } from 'react-icons/fi';
+import useDocsNav from './useDocsNav';
 import Header from '../Header';
 import Container from '../Container';
 import DocsSideNav from './DocsSideNav';
-import DocsSideNavContent, { NavContent, NavSection } from './DocsSideNavContent';
+import DocsSideNavContent from './DocsSideNavContent';
 import DocsDrawer from './DocsDrawer';
 import components from '../MDX';
 
-const query = graphql`
-  query MyQuery {
-    allMdx {
-      edges {
-        node {
-          frontmatter {
-            menu
-            name
-            route
-            title
-            order
-          }
-        }
-      }
-    }
-  }
-`;
-
-const MENU = ['JavaScript', 'React'];
-
 const DocsLayout: FC = ({ children }) => {
-  const { allMdx } = useStaticQuery(query);
+  const content = useDocsNav();
   const [isOpen, setIsOpen] = useState(false);
-
-  const getSections = (): Array<NavSection> => {
-    return allMdx.edges.map((edge: Record<string, any>) => edge.node.frontmatter);
-  };
-
-  const getContent = (): NavContent => {
-    const sections = getSections();
-
-    return sections
-      .sort((prevSection, nextSection) => {
-        const prevIndex = MENU.indexOf(prevSection.menu || prevSection.name);
-        const nextIndex = MENU.indexOf(nextSection.menu || nextSection.name);
-
-        if (prevIndex === nextIndex) {
-          const { order: prevOrder = 0 } = prevSection;
-          const { order: nextOrder = 0 } = nextSection;
-
-          return nextOrder - prevOrder;
-        }
-
-        return prevIndex - nextIndex;
-      })
-      .reduce((map: NavContent, section: NavSection) => {
-        const { menu, name } = section;
-
-        if (!menu) {
-          return {
-            ...map,
-            [name]: section
-          };
-        }
-
-        const sections = (map[menu] || []) as Array<NavSection>;
-
-        return {
-          ...map,
-          [menu]: [...sections, section]
-        };
-      }, {});
-  };
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-
-  const content = getContent();
 
   return (
     <>

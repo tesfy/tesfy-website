@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import useSiteMeta from './useSiteMeta';
 
 interface Props {
   title: string;
@@ -8,21 +8,8 @@ interface Props {
   lang?: string;
 }
 
-const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-  }
-`;
-
 const SEO: FC<Props> = ({ description, lang, title }) => {
-  const { site } = useStaticQuery(query);
-
+  const site = useSiteMeta();
   const metaDescription = description || site.siteMetadata.description;
 
   return (
