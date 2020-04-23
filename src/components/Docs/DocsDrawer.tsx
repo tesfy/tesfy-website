@@ -13,7 +13,9 @@ const DocsDrawer: FC<ComponentProps<typeof Drawer>> = ({ children, ...others }) 
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerBody>{children}</DrawerBody>
+        <DrawerBody maxH="100%" px={0}>
+          {children}
+        </DrawerBody>
       </DrawerContent>
     </Drawer>
   );

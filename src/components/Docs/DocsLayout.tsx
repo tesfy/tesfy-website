@@ -86,7 +86,7 @@ const DocsLayout: FC = ({ children }) => {
         <Box display={{ sm: 'inline-flex', md: 'none' }} ml={2}>
           <IconButton
             aria-label="Navigation Menu"
-            fontSize="24px"
+            fontSize="xl"
             variant="ghost"
             icon={FiMenu}
             onClick={handleToggle}
@@ -95,21 +95,16 @@ const DocsLayout: FC = ({ children }) => {
         </Box>
       </Header>
 
-      <DocsSideNav
-        display={['none', null, 'block']}
-        top="62px"
-        height="calc(100% - 62px)"
-        maxWidth="18rem"
-      >
-        <DocsSideNavContent content={content} />
+      <DocsSideNav display={['none', null, 'block']} top="62px" h="calc(100% - 62px)" maxW="280px">
+        <DocsSideNavContent p="6" content={content} />
       </DocsSideNav>
 
       <DocsDrawer isOpen={isOpen} onClose={handleToggle}>
-        <DocsSideNavContent content={content} />
+        <DocsSideNavContent mt="8" px="6" maxH="100%" content={content} />
       </DocsDrawer>
 
-      <Box pt="62px" pl={[0, null, '18rem']}>
-        <Container maxWidth="46rem">
+      <Box pt="62px" pl={[0, null, '280px']}>
+        <Container maxW="740px">
           <MDXProvider components={components}>{children}</MDXProvider>
         </Container>
       </Box>
