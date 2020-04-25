@@ -5,3 +5,45 @@ route: /docs/react/audience
 ---
 
 # Audience
+
+Use attributes to target an specific audience.
+
+## Hook
+
+```javascript
+import { useExperiment } from 'react-tesfy';
+
+const Hook = () => {
+  const id = 'experiment-2';
+  const variationId1 = useExperiment({ id, attributes: { countryCode: 've' } }); // null
+  const variationId2 = useExperiment({ id, attributes: { countryCode: 'us' } }); // '0'
+};
+```
+
+## Component
+
+```javascript
+import { Experiment, Variation } from 'react-tesfy';
+
+const Simple = () => (
+  <Fragment>
+    <Experiment id="experiment-2" attributes={{ countryCode: 've' }}>
+      <Variation>
+        Rendered
+      </Variation>
+      <Variation id="0">
+        Not rendered
+      </Variation>
+    </Experiment>
+
+    <Experiment id="experiment-2" attributes={{ countryCode: 'us' }}>
+      <Variation>
+        Not endered
+      </Variation>
+      <Variation id="0">
+        Rendered
+      </Variation>
+    </Experiment>
+  </Fragment>
+);
+```

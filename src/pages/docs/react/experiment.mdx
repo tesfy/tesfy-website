@@ -2,6 +2,39 @@
 name: Experiment
 menu: React
 route: /docs/react/experiment
+order: 2
 ---
 
 # Experiment
+
+Check which variation of an experiment is assigned to a user.
+
+## Hook
+
+```javascript
+import { useExperiment } from 'react-tesfy';
+
+const Component = () => {
+  const variationId = useExperiment({ id: 'experiment-1' }); // '1'
+};
+```
+
+## Component
+
+```javascript
+import { Experiment, Variation } from 'react-tesfy';
+
+const Component = () => (
+  <Experiment id="experiment-1">
+    <Variation>
+      Not rendered
+    </Variation>
+    <Variation id="0">
+      Not rendered
+    </Variation>
+    <Variation id="1">
+      Rendered
+    </Variation>
+  </Experiment>
+);
+```

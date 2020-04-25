@@ -2,6 +2,17 @@
 name: Audience
 menu: JavaScript
 route: /docs/javascript/audience
+order: 4
 ---
 
 # Audience
+
+Use attributes to target an specific audience.
+
+```javascript
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const experimentId = 'experiment-2';
+
+tesfy.getVariationId(experimentId, userId, { countryCode: 've' }); // null
+tesfy.getVariationId(experimentId, userId, { countryCode: 'us' }); // '0'
+```

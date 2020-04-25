@@ -5,3 +5,27 @@ route: /docs/react/feature
 ---
 
 # Feature
+
+Check if a feature is enabled for a user.
+
+## Hook
+
+```javascript
+import { useFeature } from 'react-tesfy';
+
+const Component = () => {
+  const isEnabled = useFeature({ id: 'feature-1' }); // true
+};
+```
+
+## Component
+
+```javascript
+import { Feature } from 'react-tesfy';
+
+const Component = () => (
+  <Feature id="feature-1">
+    {isEnabled => isEnabled ? 'enabled' : 'disabled'}
+  </Feature>
+);
+```

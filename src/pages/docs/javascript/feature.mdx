@@ -2,6 +2,16 @@
 name: Feature Flag
 menu: JavaScript
 route: /docs/javascript/feature
+order: 3
 ---
 
 # Feature Flag
+
+Check if a feature is enabled for a user.
+
+```javascript
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const featureId = 'feature-1';
+
+tesfy.isFeatureEnabled(featureId, userId); // true
+```

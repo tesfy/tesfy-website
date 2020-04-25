@@ -6,3 +6,61 @@ order: 1
 ---
 
 # Installation
+
+## npm
+
+[react-tesfy](https://github.com/andresz1/react-tesfy) could be installed via [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/). This is the recommended way to get the library.
+
+```bash
+npm install react-tesfy --save
+# or
+yarn add -D react-tesfy
+```
+
+## Initialization
+
+Render the provider with a datafile.
+
+```javascript
+import { TesfyProvider } from 'react-tesfy';
+
+const datafile = {
+  experiments: {
+    'experiment-1': {
+      id: 'experiment-1',
+      percentage: 90,
+      variations: [{
+        id: '0',
+        percentage: 50
+      }, {
+        id: '1',
+        percentage: 50
+      }]
+    },
+    'experiment-2': {
+      id: 'experiment-2',
+      percentage: 100,
+      variations: [{
+        id: '0',
+        percentage: 100
+      }],
+      audience: {
+        '==' : [{ var : 'countryCode' }, 'us']
+      }
+    }
+  },
+  features: {
+    'feature-1': {
+      id: 'feature-1',
+      percentage: 50
+    }
+  }
+};
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+
+const App = () => (
+  <TesfyProvider datafile={datafile} userId={userId}>
+    {children}
+  </TesfyProvider>
+);
+```

@@ -2,6 +2,16 @@
 name: Experiment
 menu: JavaScript
 route: /docs/javascript/experiment
+order: 2
 ---
 
 # Experiment
+
+Check which variation of an experiment is assigned to a user.
+
+```javascript
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const experimentId = 'experiment-1';
+
+tesfy.getVariationId(experimentId, userId); // '1'
+```
