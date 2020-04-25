@@ -48,8 +48,8 @@ const useDocsNav = () => {
         const nextIndex = MENU.indexOf(nextSection.menu || nextSection.name);
 
         if (prevIndex === nextIndex) {
-          const { order: prevOrder = Infinity } = prevSection;
-          const { order: nextOrder = Infinity } = nextSection;
+          const prevOrder = prevSection.order || Infinity;
+          const nextOrder = nextSection.order || Infinity;
 
           return prevOrder - nextOrder;
         }
