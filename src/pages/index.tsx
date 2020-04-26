@@ -11,7 +11,7 @@ import HomeFeatureGrid from '../components/Home/HomeFeatureGrid';
 
 const HomePage = () => {
   return (
-    <Layout>
+    <Layout footer={<Footer />}>
       <SEO title="A/B Testing and Feature Flag" />
 
       <Box maxW="lg" my={8} mx="auto">
@@ -31,8 +31,6 @@ const HomePage = () => {
       <Divider />
 
       <HomeFeatureGrid />
-
-      <Footer />
     </Layout>
   );
 };

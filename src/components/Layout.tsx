@@ -1,13 +1,19 @@
-import React, { FC, ComponentProps } from 'react';
+import React, { FC, ReactNode, ComponentProps } from 'react';
 import Header from './Header';
 import Container from './Container';
 
-const Layout: FC<ComponentProps<typeof Container>> = props => {
+interface Props {
+  footer?: ReactNode;
+}
+
+const Layout: FC<ComponentProps<typeof Container> & Props> = ({ footer, ...others }) => {
   return (
     <>
       <Header height="62px" />
 
-      <Container pt="62px" {...props} />
+      <Container pt="62px" {...others} />
+
+      {footer}
     </>
   );
 };
