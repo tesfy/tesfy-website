@@ -1,4 +1,7 @@
-import React from 'react';
-import { ColorModeProvider } from '@chakra-ui/core';
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/browser-apis/
+ */
 
-export const wrapRootElement = ({ element }) => <ColorModeProvider>{element}</ColorModeProvider>;
+// You can delete this file if you're not using it

@@ -41,7 +41,12 @@ module.exports = {
         extensions: []
       }
     },
-    `gatsby-plugin-manifest`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `assets/images/icon.png`
+      }
+    },
     `gatsby-plugin-remove-trailing-slashes`
   ]
 };
