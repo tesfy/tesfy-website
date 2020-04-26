@@ -4,6 +4,7 @@ import * as Chakra from '@chakra-ui/core';
 import * as Tesfy from 'tesfy';
 import { LiveProvider, LiveEditor, LivePreview } from 'react-live';
 import theme from 'prism-react-renderer/themes/nightOwl';
+import CodeBox from '../CodeBox';
 
 const SAMPLE_CODE = `
   function Example() {
@@ -46,9 +47,9 @@ const SAMPLE_CODE = `
 const HomeCodeBlock = () => {
   return (
     <LiveProvider scope={{ ...Chakra, Tesfy }} language="tsx" theme={theme} code={SAMPLE_CODE}>
-      <Box height="360px" maxHeight="360px" overflow="auto">
+      <CodeBox height="360px" maxHeight="360px">
         <LiveEditor />
-      </Box>
+      </CodeBox>
 
       <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
         <Box my={4} textAlign="center">

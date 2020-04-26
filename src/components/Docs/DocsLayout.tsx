@@ -41,7 +41,7 @@ const DocsLayout: FC = ({ children }) => {
         <DocsSideNavContent mt="8" px="6" maxH="100%" content={content} />
       </DocsDrawer>
 
-      <Box pt="62px" pl={[0, null, '280px']}>
+      <Box pt="62px" pb={6} pl={[0, null, '280px']}>
         <Container maxW="740px">
           <MDXProvider components={components}>{children}</MDXProvider>
         </Container>

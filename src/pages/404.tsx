@@ -1,10 +1,13 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import { Box, Heading, Text } from '@chakra-ui/core';
 
 const NotFoundPage = () => {
   return (
     <Layout>
+      <SEO title="404: Not found" />
+
       <Box
         height="calc(100vh - 64px)"
         display="flex"

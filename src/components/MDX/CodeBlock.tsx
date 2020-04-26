@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Box } from '@chakra-ui/core';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
+import CodeBox from '../CodeBox';
 
 interface Props {
   className: string;
@@ -19,16 +20,7 @@ const CodeBlock: FC<Props> = ({ children, className }) => {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Box
-          as="pre"
-          className={className}
-          my={4}
-          p={6}
-          fontSize="sm"
-          borderRadius={10}
-          overflow="auto"
-          style={style}
-        >
+        <CodeBox as="pre" className={className} my={4} p={6} style={style}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
@@ -36,7 +28,7 @@ const CodeBlock: FC<Props> = ({ children, className }) => {
               ))}
             </div>
           ))}
-        </Box>
+        </CodeBox>
       )}
     </Highlight>
   );
