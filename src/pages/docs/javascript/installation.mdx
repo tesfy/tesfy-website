@@ -22,48 +22,15 @@ Tesfy dist files are all avaliables from [jsDelivr](https://www.jsdelivr.com/pac
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tesfy@1.0.0/dist/tesfy.umd.production.min.js"></script>
-# or
+<!-- or -->
 <script src="https://unpkg.com/tesfy@1.0.0/dist/tesfy.umd.production.min.js"></script>
 ```
 
 ## Initialization
-Once imported, instantiate the engine with a datafile. A datafile is a json that defines the experiments and features avaliable. Ideally this file should be hosted somewhere outside your application (for example in S3), so it could be fetched during boostrap or every certain time. This will allow you to make changes to the file without deploying the application.
+Once imported, instantiate the engine with a `datafile` and optionally a `storage` layer to enable sticky bucketing, a `userId` and a set of `attributes`.
 
 ```js
 import * as Tesfy from 'tesfy';
 
-const datafile = {
-  experiments: {
-    'experiment-1': {
-      id: 'experiment-1',
-      percentage: 90,
-      variations: [{
-        id: '0',
-        percentage: 50
-      }, {
-        id: '1',
-        percentage: 50
-      }]
-    },
-    'experiment-2': {
-      id: 'experiment-2',
-      percentage: 100,
-      variations: [{
-        id: '0',
-        percentage: 100
-      }],
-      audience: {
-        '==' : [{ var : 'countryCode' }, 'us']
-      }
-    }
-  },
-  features: {
-    'feature-1': {
-      id: 'feature-1',
-      percentage: 50
-    }
-  }
-};
-
-const tesfy = new Tesfy.Engine(datafile);
+const tesfy = new Tesfy.Engine(datafile, storage, userId, attributes);
 ```

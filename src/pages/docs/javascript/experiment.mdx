@@ -7,11 +7,34 @@ order: 2
 
 # Experiment
 
+## Check variation
+
 Check which variation of an experiment is assigned to a user.
 
 ```javascript
-const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
 const experimentId = 'experiment-1';
 
-tesfy.getVariationId(experimentId, userId); // '1'
+tesfy.getVariationId(experimentId); // '1'
+```
+
+A `userId` and `attributes` could be optionally supplied.
+
+```javascript
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const attributes = { countryCode: 'us' };
+const experimentId = 'experiment-1';
+
+tesfy.getVariationId(experimentId, userId, attributes); // '1'
+```
+
+## Set forced variation
+
+Set a variation for a given experiment. This could be really helpful for testing purposes.
+
+```javascript
+const experimentId = 'experiment-1';
+const variationId = '2';
+
+tesfy.setForcedVariation(experimentId, variationId);
+tesfy.getVariationId(experimentId); // '2'
 ```

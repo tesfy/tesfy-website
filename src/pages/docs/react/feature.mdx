@@ -7,7 +7,7 @@ order: 3
 
 # Feature
 
-Check if a feature is enabled for a user.
+Check if a feature is enabled for a user. A `userId` and `attributes` could be optionally supplied.
 
 ## Hook
 
@@ -16,6 +16,14 @@ import { useFeature } from 'react-tesfy';
 
 const Component = () => {
   const isEnabled = useFeature({ id: 'feature-1' }); // true
+  // or
+  const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+  const attributes = { countryCode: 'us' };
+  const isEnabled = useFeature({
+    id: 'feature-1',
+    userId,
+    attributes
+  }); // true
 };
 ```
 
@@ -24,8 +32,11 @@ const Component = () => {
 ```javascript
 import { Feature } from 'react-tesfy';
 
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const attributes = { countryCode: 'us' };
+
 const Component = () => (
-  <Feature id="feature-1">
+  <Feature id="feature-1" userId={userId} attributes={attributes}>
     {isEnabled => isEnabled ? 'enabled' : 'disabled'}
   </Feature>
 );

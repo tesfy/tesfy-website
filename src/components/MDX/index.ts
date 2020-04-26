@@ -4,6 +4,7 @@ import H3 from './H3';
 import P from './P';
 import InlineCode from './InlineCode';
 import CodeBlock from './CodeBlock';
+import Link from './Link';
 import UL from './UL';
 import LI from './LI';
 import OL from './OL';
@@ -19,6 +20,7 @@ const components = {
   ul: UL,
   li: LI,
   ol: OL,
+  a: Link,
   table: Table,
   th: THead,
   td: TData,

@@ -1,0 +1,66 @@
+---
+name: Setup
+route: /docs/setup
+---
+
+import { Alert, AlertIcon, Text } from '@chakra-ui/core';
+
+# Setup
+
+To use this library there are only 2 mandatory things that must be provided.
+
+## User identifier
+
+The user identifier or `userId` is used to uniquely identify the users in your experiments and feature flags. Any string could be supplied but is recommended to use a uuid.
+
+The `userId` should be persisted somehow. For example, cookies or local storage.
+
+```javascript
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+```
+
+## Settings file
+
+The settings file or  `datafile` is just a `json` that defines the configuration of the experiments and features avaliable.
+
+<Alert my={4} status="info">
+  <AlertIcon />
+  <Text>This process will be done automatically free through a dashboard soon</Text>
+</Alert>
+
+Ideally this file should be hosted somewhere outside your application (for example in S3), so it could be fetched during boostrap or every certain time. This will allow you to make changes to this file without deploying the whole application.
+
+```javascript
+const datafile = {
+  experiments: {
+    'experiment-1': {
+      id: 'experiment-1',
+      percentage: 90,
+      variations: [{
+        id: '0',
+        percentage: 50
+      }, {
+        id: '1',
+        percentage: 50
+      }]
+    },
+    'experiment-2': {
+      id: 'experiment-2',
+      percentage: 100,
+      variations: [{
+        id: '0',
+        percentage: 100
+      }],
+      audience: {
+        '==' : [{ var : 'countryCode' }, 'us']
+      }
+    }
+  },
+  features: {
+    'feature-1': {
+      id: 'feature-1',
+      percentage: 50
+    }
+  }
+};
+```

@@ -1,16 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, ComponentProps } from 'react';
 import Header from './Header';
 import Container from './Container';
-import Footer from './Footer';
 
-const Layout: FC = ({ children }) => {
+const Layout: FC<ComponentProps<typeof Container>> = props => {
   return (
     <>
       <Header height="62px" />
 
-      <Container pt="62px">{children}</Container>
-
-      <Footer />
+      <Container pt="62px" {...props} />
     </>
   );
 };

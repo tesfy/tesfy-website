@@ -7,7 +7,7 @@ order: 2
 
 # Experiment
 
-Check which variation of an experiment is assigned to a user.
+Check which variation of an experiment is assigned to a user. A `userId` and `attributes` could be optionally supplied.
 
 ## Hook
 
@@ -16,6 +16,14 @@ import { useExperiment } from 'react-tesfy';
 
 const Component = () => {
   const variationId = useExperiment({ id: 'experiment-1' }); // '1'
+  // or
+  const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+  const attributes = { countryCode: 'us' };
+  const variationId = useExperiment({
+    id: 'experiment-1',
+    userId,
+    attributes
+  }); // '1'
 };
 ```
 
@@ -24,8 +32,11 @@ const Component = () => {
 ```javascript
 import { Experiment, Variation } from 'react-tesfy';
 
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const attributes = { countryCode: 'us' };
+
 const Component = () => (
-  <Experiment id="experiment-1">
+  <Experiment id="experiment-1" userId={userId} attributes={attributes}>
     <Variation>
       Not rendered
     </Variation>

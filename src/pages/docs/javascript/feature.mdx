@@ -7,11 +7,22 @@ order: 3
 
 # Feature Flag
 
+## Check feature
+
 Check if a feature is enabled for a user.
 
 ```javascript
-const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
 const featureId = 'feature-1';
 
-tesfy.isFeatureEnabled(featureId, userId); // true
+tesfy.isFeatureEnabled(featureId); // true
+```
+
+A `userId` and `attributes` could be optionally supplied.
+
+```javascript
+const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
+const attributes = { countryCode: 'us' };
+const featureId = 'feature-1';
+
+tesfy.isFeatureEnabled(featureId, userId, attributes); // true
 ```

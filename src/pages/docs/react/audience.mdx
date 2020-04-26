@@ -26,7 +26,7 @@ const Hook = () => {
 import { Experiment, Variation } from 'react-tesfy';
 
 const Simple = () => (
-  <Fragment>
+  <>
     <Experiment id="experiment-2" attributes={{ countryCode: 've' }}>
       <Variation>
         Rendered
@@ -44,6 +44,6 @@ const Simple = () => (
         Rendered
       </Variation>
     </Experiment>
-  </Fragment>
+  </>
 );
 ```
