@@ -25,7 +25,7 @@ const SAMPLE_CODE = `
     };
     const userId = '676380e0';
     const attributes = { countryCode: 'us' };
-    const tesfy = new Tesfy.Engine(datafile);
+    const tesfy = new Tesfy.Engine({ datafile });
     const variationId = tesfy.getVariationId('experiment-1', userId, attributes);
 
     return (
