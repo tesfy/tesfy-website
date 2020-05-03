@@ -19,14 +19,18 @@ yarn add -D react-tesfy
 
 ## Initialization
 
-Render the provider with a `datafile` and optionally a `storage` layer to enable sticky bucketing, a `userId` and a set of `attributes`.
+Create an engine instance using a `datafile` and optionally a `storage` layer to enable sticky bucketing, a `userId` and a set of `attributes` and then render the provider with it.
 
 ```javascript
-import { TesfyProvider } from 'react-tesfy';
+import { createInstance, TesfyProvider } from 'react-tesfy';
 
-const App = () => (
-  <TesfyProvider datafile={datafile} userId={userId}>
-    {children}
-  </TesfyProvider>
-);
+const App = () => {
+  const engine = createInstance({ datafile, userId });
+
+  return (
+    <TesfyProvider engine={engine}>
+      {children}
+    </TesfyProvider>
+  );
+};
 ```

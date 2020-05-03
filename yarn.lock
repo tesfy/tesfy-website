@@ -12614,12 +12614,12 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-tesfy@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-tesfy/-/react-tesfy-1.1.0.tgz#0fe14d13818688c3bc32747e2663cb5a0771d49e"
-  integrity sha512-D9mqG4VWgPex5X5dfUUr8AHVWtut39LXHXisQdkQnHymC/mG1R0HJjciKOpqaTinDcfY1En40j4ulmCO4Ro0DA==
+react-tesfy@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-tesfy/-/react-tesfy-1.2.0.tgz#47c4d2c00e167fb3d6d61d68d7d114a649759078"
+  integrity sha512-/IS3cb8jD1yh6wU6e7vPsCIW0boCvwTepl1DxVbathc4wLeAdJKrC2BB8NLulHvJc1vwpYXGYp0qN7A9mql0nQ==
   dependencies:
-    tesfy "^1.1.0"
+    tesfy "^1.1.1"
 
 react@^16.12.0, react@^16.8.0:
   version "16.12.0"
@@ -14648,10 +14648,10 @@ terser@^4.1.2:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
-tesfy@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/tesfy/-/tesfy-1.1.0.tgz#07ef50d5db3547388355b9826ad4ada9663598d6"
-  integrity sha512-tRJuLW9s2dIY36/JuBUjRjDVdwTPO0s7SA6awijOzRh6VqnPf3k8uHvYAp1Iy3shCAyBdpVMXYXnM2WxHjDN/w==
+tesfy@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/tesfy/-/tesfy-1.1.1.tgz#f51cfd2c99925aa9ff5af77511a3729cc3722e9f"
+  integrity sha512-133N0UV/WiWlzlgiGsMe1QajPBrRHwsEk3/Q4IU9CZ066HfOBg8PWQxMA43KXz2sI2FM40p36Rhw+vUx3TikfA==
   dependencies:
     json-logic-js "^1.2.2"
     murmurhash "^0.0.2"
