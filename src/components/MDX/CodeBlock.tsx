@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Box } from '@chakra-ui/core';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import CodeBox from '../CodeBox';

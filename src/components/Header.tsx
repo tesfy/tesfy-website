@@ -1,6 +1,6 @@
 import React, { FC, ComponentProps } from 'react';
 import { Link } from 'gatsby';
-import { useColorMode, Box, IconButton } from '@chakra-ui/core';
+import { useColorMode, Box, Button, IconButton } from '@chakra-ui/core';
 import { FiSun, FiMoon, FiGithub } from 'react-icons/fi';
 import LogoIcon from '@/assets/logo.svg';
 
@@ -21,12 +21,22 @@ const Header: FC<ComponentProps<typeof Box>> = ({ children, ...others }) => {
       boxShadow="sm"
       {...others}
     >
-      <Box display="flex" alignItems="center" justifyContent="space-between" px="2" height="100%">
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        px={{ xs: 2, md: 4 }}
+        height="100%"
+      >
         <Link to="/">
           <Box as={LogoIcon} height="40px" width="auto" fill="green.500" />
         </Link>
 
         <Box display="flex">
+          <Button as="a" mr={2} variantColor="green" href="https://app.tesfy.io">
+            Sign in
+          </Button>
+
           <IconButton
             aria-label={`Swith to ${isLight ? 'dark' : 'light'}`}
             fontSize="xl"
@@ -39,6 +49,7 @@ const Header: FC<ComponentProps<typeof Box>> = ({ children, ...others }) => {
 
           <IconButton
             as="a"
+            display={{ xs: 'none', md: 'inline-flex' }}
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/andresz1/tesfy"
