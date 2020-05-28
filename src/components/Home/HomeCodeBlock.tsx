@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Heading, Text } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { Box } from '@chakra-ui/core';
 import * as Chakra from '@chakra-ui/core';
 import * as Tesfy from 'tesfy';
 import { LiveProvider, LiveEditor, LivePreview } from 'react-live';
@@ -31,35 +31,42 @@ const SAMPLE_CODE = `
     return (
       <>
         {!variationId && (
-          <Button>Solid</Button>
+          <Button
+            variantColor="green"
+            variant="ghost">
+            Sign up
+          </Button>
         )}
         {variationId === '0' && (
-          <Button variant="ghost">Ghost</Button>
+          <Button
+            variantColor="green"
+            variant="solid"
+          >
+            Sign up
+          </Button>
         )}
         {variationId === '1' && (
-          <Button variant="outline">Outline</Button>
+          <Button
+            variantColor="green"
+            variant="outline"
+          >
+            Sign up
+          </Button>
         )}
       </>
     );
   }
 `;
 
-const HomeCodeBlock = () => {
+const HomeCodeBlock: FC = ({ children }) => {
   return (
     <LiveProvider scope={{ ...Chakra, Tesfy }} language="tsx" theme={theme} code={SAMPLE_CODE}>
       <CodeBox height="360px" maxHeight="360px">
         <LiveEditor />
       </CodeBox>
 
-      <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-        <Box my={4} textAlign="center">
-          <Heading fontSize="2xl" fontWeight="bold" color="green.500">
-            Try it out!
-          </Heading>
-          <Text mt={1} fontSize="md">
-            Change some variables and spot the magic ✨
-          </Text>
-        </Box>
+      <Box my={8} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+        {children}
 
         <LivePreview />
       </Box>

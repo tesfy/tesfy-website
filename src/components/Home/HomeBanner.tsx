@@ -13,11 +13,12 @@ const HomeBanner: FC<ComponentProps<typeof Box>> = props => {
 
       <Box my={4}>
         <Heading as="h1" size="lg" color="grey.500" fontWeight="bold">
-          A/B Testing and Feature Flag
+          A/B Testing and Feature Flags
         </Heading>
 
         <Text opacity={0.7} fontSize="lg">
-          JavaScript library focused on performance ⚡️
+          Ship faster and taking data-driven decisions with a set of libraries focused on
+          performance ⚡️
         </Text>
       </Box>
 
