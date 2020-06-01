@@ -22,7 +22,7 @@ const HomePage = () => {
         <HomeCodeBlock>
           <Box mb={4} textAlign="center">
             <Heading mb={2} as="h2" size="lg">
-              The platform
+              Web Application
             </Heading>
 
             <Text>
@@ -30,7 +30,7 @@ const HomePage = () => {
               <Text as="b" opacity={1} color="green.500">
                 free
               </Text>{' '}
-              using our platform.{' '}
+              using our Web Application.{' '}
               <Text as="b" opacity={1} color="green.500">
                 Unlimited
               </Text>{' '}

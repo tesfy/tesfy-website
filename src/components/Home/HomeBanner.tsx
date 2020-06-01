@@ -17,8 +17,8 @@ const HomeBanner: FC<ComponentProps<typeof Box>> = props => {
         </Heading>
 
         <Text opacity={0.7} fontSize="lg">
-          Ship faster and taking data-driven decisions with a set of libraries focused on
-          performance ⚡️
+          Ship faster taking data-driven decisions with a set of libraries focused on performance
+          ⚡️
         </Text>
       </Box>
 

@@ -27,11 +27,14 @@ const SAMPLE_CODE = `
     const attributes = { countryCode: 'us' };
     const tesfy = new Tesfy.Engine({ datafile });
     const variationId = tesfy.getVariationId('experiment-1', userId, attributes);
+    const href = 'https://app.tesfy.io/';
 
     return (
       <>
         {!variationId && (
           <Button
+            as="a"
+            href={href}
             variantColor="green"
             variant="ghost">
             Sign up
@@ -39,6 +42,8 @@ const SAMPLE_CODE = `
         )}
         {variationId === '0' && (
           <Button
+            as="a"
+            href={href}
             variantColor="green"
             variant="solid"
           >
@@ -47,6 +52,8 @@ const SAMPLE_CODE = `
         )}
         {variationId === '1' && (
           <Button
+            as="a"
+            href={href}
             variantColor="green"
             variant="outline"
           >
