@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box } from '@chakra-ui/core';
+import { Box, Heading, Text } from '@chakra-ui/core';
 import * as Chakra from '@chakra-ui/core';
 import * as Tesfy from 'tesfy';
 import { LiveProvider, LiveEditor, LivePreview } from 'react-live';
@@ -7,7 +7,7 @@ import theme from 'prism-react-renderer/themes/nightOwl';
 import CodeBox from '../CodeBox';
 
 const SAMPLE_CODE = `
-  function Example() {
+  function SignupButton() {
     const datafile = {
       experiments: {
         'experiment-1': {
@@ -65,7 +65,7 @@ const SAMPLE_CODE = `
   }
 `;
 
-const HomeCodeBlock: FC = ({ children }) => {
+const HomeCodeBlock: FC = () => {
   return (
     <LiveProvider scope={{ ...Chakra, Tesfy }} language="tsx" theme={theme} code={SAMPLE_CODE}>
       <CodeBox height="360px" maxHeight="360px">
@@ -73,7 +73,23 @@ const HomeCodeBlock: FC = ({ children }) => {
       </CodeBox>
 
       <Box my={8} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-        {children}
+        <Box mb={4} textAlign="center">
+          <Heading mb={2} as="h2" size="lg">
+            Web Application
+          </Heading>
+
+          <Text>
+            Easily configure your experimentation strategy for{' '}
+            <Text as="b" opacity={1} color="green.500">
+              free
+            </Text>{' '}
+            using our Web Application.{' '}
+            <Text as="b" opacity={1} color="green.500">
+              Unlimited
+            </Text>{' '}
+            projects, experiments and features can be created. Give it a try ✨
+          </Text>
+        </Box>
 
         <LivePreview />
       </Box>
