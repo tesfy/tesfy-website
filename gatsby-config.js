@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Tesfy`,
     description: `A lightweight A/B Testing and Feature Flag JavaScript library focused on performance`,
-    author: `@andresz1`
+    author: `@andresz1`,
+    siteUrl: `https://tesfy.io`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -64,6 +65,7 @@ module.exports = {
         icon: `src/assets/images/icon.png`
       }
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-trailing-slashes`
   ]
 };

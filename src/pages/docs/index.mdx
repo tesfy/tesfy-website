@@ -46,11 +46,11 @@ To determine which variation is assigned to an experiment the following flow is 
 
 <Image my={8} src={flowSrc} alt="Flow" />
 
-- Forced variation assignments are checked. Forcing variations could be really useful for some cases, for example, **testing** or **whitelisting**.
-- Sticky bucketing querying the storage layer is checked (if defined).
+- Forced variation assignments are checked. Forcing variations could be useful for cases like **testing** or **whitelisting**.
+- Sticky bucketing querying the storage layer is checked.
 - Audience evaluation, if the audience does not match, no variation will be assigned.
 - Bucketing.
-- Sticky bucketing persisting the variation in the storage layer (if defined).
+- Sticky bucketing persisting the variation in the storage layer.
 
 <Alert my={4} status="warning" variant="left-accent" overflow="initial">
   <AlertIcon />

@@ -8,7 +8,7 @@ export type SEOProps = {
   lang?: string;
 };
 
-const SEO: FC<SEOProps> = ({ description, lang, title }) => {
+const SEO: FC<SEOProps> = ({ title, description, lang = 'en' }) => {
   const site = useSiteMeta();
   const metaDescription = description || site.siteMetadata.description;
 
