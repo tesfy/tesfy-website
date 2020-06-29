@@ -1,14 +1,16 @@
-import React from 'react';
-import { useColorMode, Box, Text, Link } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { useColorMode, Box, Text, Link, BoxProps } from '@chakra-ui/core';
 import { FiHeart } from 'react-icons/fi';
 import Container from './Container';
 
-const Footer = () => {
+export type FooterProps = BoxProps;
+
+const Footer: FC<FooterProps> = props => {
   const { colorMode } = useColorMode();
-  const bgColor = { light: 'gray.50', dark: 'gray.700' };
+  const bgColor = { light: 'gray.100', dark: 'gray.700' };
 
   return (
-    <Box as="footer" py={12} backgroundColor={bgColor[colorMode]} textAlign="center">
+    <Box as="footer" py={12} backgroundColor={bgColor[colorMode]} textAlign="center" {...props}>
       <Container>
         <Text fontSize="sm">Released under the MIT License. Copyright © 2020 Tesfy.</Text>
 

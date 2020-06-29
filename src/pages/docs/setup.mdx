@@ -4,11 +4,10 @@ route: /docs/setup
 order: 2
 ---
 
-import { Alert, AlertIcon, Text } from '@chakra-ui/core';
+import { Alert, AlertIcon, Text, Link } from '@chakra-ui/core';
+import Sparkles from '../../components/Sparkles';
 
 # Setup
-
-To use this library there are only 2 mandatory things that must be provided.
 
 ## User identifier
 
@@ -24,12 +23,12 @@ const userId = '676380e0-7793-44d6-9189-eb5868e17a86';
 
 The settings file or  `datafile` is just a `json` that defines the configuration of the experiments and features avaliable.
 
-<Alert my={4} status="info">
+<Alert my={4} status="info" variant="left-accent" overflow="initial">
   <AlertIcon />
-  <Text>This process will be done automatically through a dashboard soon and totally free!</Text>
+  <Text>This process could be automatically done using our <Link href="https://app.tesfy.io" isExternal><Sparkles>web application</Sparkles></Link> for free!</Text>
 </Alert>
 
-Ideally this file should be hosted somewhere outside your application (for example in S3), so it could be fetched during boostrap or every certain time. This will allow you to make changes to this file without deploying the whole application.
+Ideally this file should be hosted somewhere outside your application, so it could be fetched during boostrap or every certain time. This will allow you to make changes to this file without deploying the whole application.
 
 ```javascript
 const datafile = {
@@ -66,4 +65,14 @@ const datafile = {
 };
 ```
 
-The format to define audiences is [jsonLogic](http://jsonlogic.com/) which allow you to build complex rules as JSON.
+The format to define audiences is [jsonLogic](http://jsonlogic.com/) which allow you to build complex rules as JSON. For example, you can nest rules to target users that are older than 32 years old and are located in Venezuela.
+
+
+```javascript
+const rules = {
+  and: [
+    { '<': [{ var: 'age' }, 32] },
+    { '==': [{ var: 'countryCode' }, 've'] }
+  ]
+};
+```

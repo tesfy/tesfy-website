@@ -1,17 +1,12 @@
-import React, { ReactNode, FC, ComponentProps } from 'react';
-import { Box, Flex, Heading, Text, Icon } from '@chakra-ui/core';
+import React, { ReactNode, FC } from 'react';
+import { Box, Flex, Heading, Text, Icon, BoxProps } from '@chakra-ui/core';
 
-interface Props {
+export type FeatureProps = BoxProps & {
   title: ReactNode;
   icon: typeof Icon;
-}
+};
 
-const HomeFeature: FC<ComponentProps<typeof Box> & Props> = ({
-  title,
-  icon,
-  children,
-  ...others
-}) => {
+const Feature: FC<FeatureProps> = ({ title, icon, children, ...others }) => {
   return (
     <Box display="flex" flexDirection="column" alignItems="center" {...others}>
       <Flex rounded="full" size={12} bg="green.500" align="center" justify="center">
@@ -26,4 +21,4 @@ const HomeFeature: FC<ComponentProps<typeof Box> & Props> = ({
   );
 };
 
-export default HomeFeature;
+export default Feature;

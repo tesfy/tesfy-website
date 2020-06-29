@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import useSiteMeta from './useSiteMeta';
 
-interface Props {
+export type SEOProps = {
   title: string;
   description?: string;
   lang?: string;
-}
+};
 
-const SEO: FC<Props> = ({ description, lang, title }) => {
+const SEO: FC<SEOProps> = ({ description, lang, title }) => {
   const site = useSiteMeta();
   const metaDescription = description || site.siteMetadata.description;
 

@@ -7,7 +7,9 @@ import {
   DrawerBody
 } from '@chakra-ui/core';
 
-const DocsDrawer: FC<ComponentProps<typeof Drawer>> = ({ children, ...others }) => {
+export type DocsDrawerProps = ComponentProps<typeof Drawer>;
+
+const DocsDrawer: FC<DocsDrawerProps> = ({ children, ...others }) => {
   return (
     <Drawer isOpen placement="right" {...others}>
       <DrawerOverlay />

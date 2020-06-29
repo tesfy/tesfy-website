@@ -1,14 +1,14 @@
-import React, { FC, ComponentProps } from 'react';
-import { Box } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { Box, BoxProps } from '@chakra-ui/core';
 import { NavContent, NavSection } from './useDocsNav';
 import DocsSideNavHeading from './DocsSideNavHeading';
 import DocsSideNavLink from './DocsSideNavLink';
 
-interface Props {
+export type DocsSideNavContentProps = BoxProps & {
   content: NavContent;
-}
+};
 
-const DocsSideNavContent: FC<ComponentProps<typeof Box> & Props> = ({ content, ...others }) => {
+const DocsSideNavContent: FC<DocsSideNavContentProps> = ({ content, ...others }) => {
   return (
     <Box
       as="nav"

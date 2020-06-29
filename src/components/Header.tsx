@@ -1,10 +1,12 @@
-import React, { FC, ComponentProps } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'gatsby';
-import { useColorMode, Box, IconButton } from '@chakra-ui/core';
+import { useColorMode, Box, IconButton, BoxProps } from '@chakra-ui/core';
 import { FiSun, FiMoon, FiGithub } from 'react-icons/fi';
-import LogoIcon from '@/assets/logo.svg';
+import LogoIcon from '@/assets/svgs/logo.svg';
 
-const Header: FC<ComponentProps<typeof Box>> = ({ children, ...others }) => {
+export type HeaderProps = BoxProps;
+
+const Header: FC<HeaderProps> = ({ children, ...others }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isLight = colorMode === 'light';
   const bgColor = { light: 'white', dark: 'gray.800' };
@@ -16,7 +18,7 @@ const Header: FC<ComponentProps<typeof Box>> = ({ children, ...others }) => {
       top="0"
       left="0"
       width="full"
-      zIndex={1}
+      zIndex={2}
       backgroundColor={bgColor[colorMode]}
       boxShadow="sm"
       {...others}

@@ -1,7 +1,9 @@
-import React, { FC, ComponentProps } from 'react';
-import { Box } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { Box, BoxProps } from '@chakra-ui/core';
 
-const CodeBox: FC<ComponentProps<typeof Box>> = props => {
+export type CodeBoxProps = BoxProps;
+
+const CodeBox: FC<CodeBoxProps> = props => {
   return <Box fontSize="sm" borderRadius={10} overflow="auto" {...props} />;
 };
 

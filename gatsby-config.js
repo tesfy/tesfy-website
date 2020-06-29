@@ -13,38 +13,55 @@ module.exports = {
         path: `${__dirname}/src/pages`
       }
     },
-    `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        defaultLayouts: {
-          default: require.resolve('./src/components/Docs/DocsLayout.tsx')
-        }
-      }
-    },
-    `gatsby-plugin-chakra-ui`,
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-react-svg`,
-      options: {
-        rule: {
-          include: /assets/
-        }
+        name: `images`,
+        path: `${__dirname}/src/assets/images`
       }
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '@': __dirname
+          '@': `${__dirname}/src`
         },
         extensions: []
       }
     },
     {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /src\/assets\/svgs/
+        }
+      }
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          gatsbyRemarkPlugins: [
+            {
+              resolve: `gatsby-remark-images`,
+              options: {
+                maxWidth: 1200
+              }
+            }
+          ],
+          default: require.resolve('./src/components/Docs/DocsLayout.tsx')
+        }
+      }
+    },
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-chakra-ui`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `assets/images/icon.png`
+        icon: `src/assets/images/icon.png`
       }
     },
     `gatsby-plugin-remove-trailing-slashes`

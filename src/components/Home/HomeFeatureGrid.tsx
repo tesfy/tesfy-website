@@ -1,48 +1,49 @@
-import React, { FC, ComponentProps } from 'react';
-import { Grid, Link } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { Grid, Link, GridProps } from '@chakra-ui/core';
 import { FiTrendingUp, FiShuffle, FiStar, FiUsers, FiCopy, FiDollarSign } from 'react-icons/fi';
-import HomeFeature from './HomeFeature';
+import Feature from '../Feature';
 
-const HomeFeatureGrid: FC<ComponentProps<typeof Grid>> = props => {
+export type HomeFeatureGrid = GridProps;
+
+const HomeFeatureGrid: FC<HomeFeatureGrid> = props => {
   return (
     <Grid
       templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
       gap={10}
       px={{ md: 12 }}
-      my={8}
       {...props}
     >
-      <HomeFeature icon={FiTrendingUp} title="Performance">
+      <Feature icon={FiTrendingUp} title="Performance">
         Since performance plays a major role in the success of any app{' '}
         <Link color="green.500" href="https://bundlephobia.com/result?p=tesfy@1.0.0" isExternal>
           Tesfy
         </Link>{' '}
         is focused to provide the best
-      </HomeFeature>
+      </Feature>
 
-      <HomeFeature icon={FiShuffle} title="Experiments">
+      <Feature icon={FiShuffle} title="Experiments">
         Compare between two or more variations of a change to know which performs better
-      </HomeFeature>
+      </Feature>
 
-      <HomeFeature icon={FiStar} title="Feature Flags">
+      <Feature icon={FiStar} title="Feature Flags">
         Deploy changes under flags and open them progressivily. If something goes wrong just turn
         the flag off
-      </HomeFeature>
+      </Feature>
 
-      <HomeFeature icon={FiUsers} title="Audiences">
+      <Feature icon={FiUsers} title="Audiences">
         For both experiments and feature flags target a specific group of users based on conditions
         that you specify
-      </HomeFeature>
+      </Feature>
 
-      <HomeFeature icon={FiCopy} title="Sticky Bucketing">
+      <Feature icon={FiCopy} title="Sticky Bucketing">
         Ensure a user always sees the same experiment or feature even though traffic allocation and
         atributtes change
-      </HomeFeature>
+      </Feature>
 
-      <HomeFeature icon={FiDollarSign} title="Free">
+      <Feature icon={FiDollarSign} title="Free">
         The usage of these libraries is totally free and could be customized as you want to fit your
         needs
-      </HomeFeature>
+      </Feature>
     </Grid>
   );
 };

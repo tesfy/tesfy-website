@@ -4,9 +4,10 @@ import Layout from '../components/Layout';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import HomeBanner from '../components/Home/HomeBanner';
-import HomeCodeBlock from '../components/Home/HomeCodeBlock';
-import HomeSectionList from '../components/Home/HomeSectionList';
+import HomePreview from '../components/Home/HomePreview';
+import HomeHightlightGrid from '../components/Home/HomeHightlightGrid';
 import HomeFeatureGrid from '../components/Home/HomeFeatureGrid';
+import HomeSupport from '../components/Home/HomeSupport';
 
 const HomePage = () => {
   return (
@@ -14,18 +15,20 @@ const HomePage = () => {
       <SEO title="A/B Testing and Feature Flags" />
 
       <Box maxW="lg" my={8} mx="auto">
-        <HomeBanner mb={8} />
+        <HomeBanner mb={12} />
 
-        <HomeCodeBlock />
+        <HomePreview />
       </Box>
 
       <Divider />
 
-      <HomeSectionList my={8} />
+      <HomeHightlightGrid my={12} />
+
+      <HomeSupport my={12} />
 
       <Divider />
 
-      <HomeFeatureGrid />
+      <HomeFeatureGrid my={12} />
     </Layout>
   );
 };

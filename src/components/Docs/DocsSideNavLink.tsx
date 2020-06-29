@@ -1,14 +1,12 @@
-import React, { FC, ComponentProps } from 'react';
+import React, { FC } from 'react';
 import { useLocation } from '@reach/router';
-import { Link } from 'gatsby';
-import { Box } from '@chakra-ui/core';
+import { Link, GatsbyLinkProps } from 'gatsby';
+import { Box, BoxProps } from '@chakra-ui/core';
 import SEO from '../SEO';
 
-const DocsSideNavLink: FC<ComponentProps<typeof Box> & ComponentProps<typeof Link>> = ({
-  to,
-  title,
-  ...others
-}) => {
+export type DocsSideNavLinkProps = BoxProps & GatsbyLinkProps<any>;
+
+const DocsSideNavLink: FC<DocsSideNavLinkProps> = ({ to, title, ...others }) => {
   const { pathname } = useLocation();
   const isActive = to === pathname;
 

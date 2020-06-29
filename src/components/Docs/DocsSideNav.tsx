@@ -1,7 +1,9 @@
-import React, { FC, ComponentProps } from 'react';
-import { Box } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { Box, BoxProps } from '@chakra-ui/core';
 
-const DocsSideNav: FC<ComponentProps<typeof Box>> = props => {
+export type DocsSideNavProps = BoxProps;
+
+const DocsSideNav: FC<DocsSideNavProps> = props => {
   return (
     <Box
       position="fixed"

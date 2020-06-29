@@ -1,7 +1,9 @@
-import React, { FC, ComponentProps } from 'react';
-import { Heading } from '@chakra-ui/core';
+import React, { FC } from 'react';
+import { Heading, HeadingProps } from '@chakra-ui/core';
 
-const DocsSideNavHeading: FC<ComponentProps<typeof Heading>> = props => {
+export type DocsSideNavHeadingProps = HeadingProps;
+
+const DocsSideNavHeading: FC<DocsSideNavHeadingProps> = props => {
   return <Heading fontSize="sm" letterSpacing="wide" mb={2} textTransform="uppercase" {...props} />;
 };
 

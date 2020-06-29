@@ -1,13 +1,13 @@
-import React, { FC, ReactNode, ComponentProps } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Button } from '@chakra-ui/core';
 import Header from './Header';
-import Container from './Container';
+import Container, { ContainerProps } from './Container';
 
-interface Props {
+export type LayoutProps = ContainerProps & {
   footer?: ReactNode;
-}
+};
 
-const Layout: FC<ComponentProps<typeof Container> & Props> = ({ footer, ...others }) => {
+const Layout: FC<LayoutProps> = ({ footer, ...others }) => {
   return (
     <>
       <Header height="62px">
