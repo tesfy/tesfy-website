@@ -3,7 +3,6 @@ import { theme, ThemeProvider, ColorModeProvider, CSSReset } from '@chakra-ui/co
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
-    <CSSReset />
     <ColorModeProvider value="light">
       <CSSReset />
       {element}
