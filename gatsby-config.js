@@ -58,7 +58,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-chakra-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
