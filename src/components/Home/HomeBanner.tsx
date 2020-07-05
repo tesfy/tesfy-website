@@ -21,9 +21,12 @@ const HomeBanner: FC<HomeBannerProps> = props => {
           A/B Testing and Feature Flags
         </Heading>
 
-        <Text opacity={0.7} fontSize="lg">
+        <Text fontSize="lg">
           Ship faster taking data-driven decisions with a set of libraries focused on performance
-          for <b>free</b>
+          for{' '}
+          <Text as="b" color="green.500">
+            free
+          </Text>
         </Text>
       </Box>
 

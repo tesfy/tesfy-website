@@ -3,7 +3,8 @@ name: Introduction
 route: /docs
 order: 1
 ---
-import { Flex, Image, Alert, AlertIcon, Text, Link } from '@chakra-ui/core';
+import { Flex, Alert, AlertIcon, Text, Link } from '@chakra-ui/core';
+import HybridImage from '../../components/HybridImage';
 import hashingSrc from '@/assets/images/hashing.png';
 import flowSrc from '@/assets/images/flow.png';
 
@@ -23,7 +24,7 @@ A hash function is any function that can be used to map data of arbitrary size t
 
 In this case the `Engine` takes a `userId` (e.g. `4qz936x2-62ex`) and a experiment or feature `key` (e.g. `experiment-1`) defined in the configuration to build a enhanced key that will be the concatenation of both of them. From this new key a hash is created by using a hash function.
 
-<Image my={8} src={hashingSrc} alt="Hashing process" />
+<HybridImage my={8} src={hashingSrc} alt="Hashing process" />
 
 ### Bucketing
 
@@ -44,7 +45,7 @@ Once the bucket is created. It will be compared with the bucketing ranges genera
 
 To determine which variation is assigned to an experiment the following flow is executed.
 
-<Image my={8} src={flowSrc} alt="Flow" />
+<HybridImage my={8} src={flowSrc} alt="Flow" />
 
 - Forced variation assignments are checked. Forcing variations could be useful for cases like **testing** or **whitelisting**.
 - Sticky bucketing querying the storage layer is checked.
