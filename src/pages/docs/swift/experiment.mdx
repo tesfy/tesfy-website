@@ -1,0 +1,42 @@
+---
+name: Experiment
+menu: Swift
+route: /docs/swift/experiment
+order: 2
+---
+
+# Experiment
+
+## Check variation
+
+Check which variation of an experiment is assigned to a user.
+
+```swift
+let experimentId = "experiment-1"
+
+tesfy.getVariationId(experimentId: experimentId) // "0"
+```
+
+A `userId` and `attributes` could be optionally supplied.
+
+```swift
+let experimentId = "experiment-2";
+let userId = "676380e0-7793-44d6-9189-eb5868e17a86";
+let attributes = """
+  { "countryCode": "us" }
+"""
+
+tesfy.getVariationId(experimentId: experimentId, userId: userId, attributes: attributes) // "0"
+```
+
+## Set forced variation
+
+Set a fixed variation for a given experiment. This could be really helpful for testing purposes.
+
+```swift
+let experimentId = "experiment-1";
+let variationId = "1";
+
+tesfy.setForcedVariation(experimentId: experimentId, variationId: variationId)
+tesfy.getVariationId(experimentId: experimentId) // "1"
+```

@@ -1,0 +1,18 @@
+---
+name: Audience
+menu: Swift
+route: /docs/swift/audience
+order: 4
+---
+
+# Audience
+
+Use attributes to target an specific audience by using [JsonLogic](http://jsonlogic.com/).
+
+```swift
+let userId = "676380e0-7793-44d6-9189-eb5868e17a86"
+let experimentId = "experiment-2"
+
+tesfy.getVariationId(experimentId: experimentId, userId: userId, attributes: "{ \"countryCode\": \"ve\" }") // nil
+tesfy.getVariationId(experimentId: experimentId, userId: userId, attributes: "{ \"countryCode\": \"us\" }") // "0"
+```

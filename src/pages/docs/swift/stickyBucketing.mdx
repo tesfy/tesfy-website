@@ -1,0 +1,37 @@
+---
+name: Sticky Bucketing
+menu: Swift
+route: /docs/swift/stickyBucketing
+order: 5
+---
+
+# Sticky Bucketing
+
+Optionally add a storage layer when instantiating tesfy by conforming to the protocol `TesfyStorable`. This layer could be whatever you want (UserDefaults, Keychain, Core Data, SQLite, etc.). This way even allocation or attributes changes in users will stick with the same variation.
+
+```swift
+class TesfyStorage: TesfyStorable {
+    var storage: [String: String]
+    
+    init(storage: [String: String]? = [:]) {
+        self.storage = storage ?? [:]
+    }
+    
+    func get(id: String) -> String? {
+        return storage[id]
+    }
+    
+    func store(id: String, value: String?) {
+        self.storage[id] = value
+    }
+}
+
+let tesfyStorage = TesfyStorage()
+let tesfy = Tesfy(datafile: datafile, storage: tesfyStorage)
+
+let userId = "676380e0-7793-44d6-9189-eb5868e17a86"
+let experimentId = "experiment-2"
+
+tesfy.getVariationId(experimentId: experimentId, userId: userId, attributes: "{ \"countryCode\": \"us\" }") // "0"
+tesfy.getVariationId(experimentId: experimentId, userId: userId, attributes: "{ \"countryCode\": \"ve\" }") // "0"
+```
