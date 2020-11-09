@@ -1,0 +1,30 @@
+---
+name: Feature Flag
+menu: Swift
+route: /docs/swift/feature
+order: 3
+---
+
+# Feature Flag
+
+## Check feature
+
+Check if a feature is enabled for a user.
+
+```swift
+let featureId = "feature-1"
+
+tesfy.isFeatureEnabled(featureId: featureId) // true|false
+```
+
+A `userId` and `attributes` could be optionally supplied.
+
+```swift
+let featureId = "feature-1"
+let userId = "676380e0-7793-44d6-9189-eb5868e17a86"
+let attributes = """
+  { "countryCode": "us" }
+"""
+
+tesfy.isFeatureEnabled(featureId: featureId, userId: userId, attributes: attributes) // true|false
+```

@@ -1,0 +1,25 @@
+---
+name: Installation
+menu: Swift
+route: /docs/swift/installation
+order: 1
+---
+
+# Installation
+
+## CocoaPods
+
+Tesfy is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+```ruby
+pod 'Tesfy'
+```
+
+## Initialization
+Once imported, instantiate the engine with a `datafile` and optionally a `storage` layer to enable sticky bucketing, a `userId` and a set of `attributes`.
+
+```swift
+import Tesfy
+
+let tesfy = Tesfy(datafile: datafile, storage: storage, userId: userId, attributes: attributes)
+```
