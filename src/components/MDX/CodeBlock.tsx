@@ -3,6 +3,9 @@ import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import CodeBox from '../CodeBox';
 
+require('prismjs/components/prism-kotlin');
+require('prismjs/components/prism-csharp');
+
 interface Props {
   className: string;
   children: string;

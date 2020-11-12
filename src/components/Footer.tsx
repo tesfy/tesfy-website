@@ -18,7 +18,8 @@ const Footer: FC<FooterProps> = props => {
           Made with <Box as={FiHeart} display="inline" color="red.500" fill="red.500" /> by{' '}
           <Link color="green.500" href="https://github.com/andresz1" isExternal>
             @andresz1
-          </Link>
+          </Link>{' '}
+          and contributors
         </Text>
       </Container>
     </Box>

@@ -30,7 +30,7 @@ const QUERY = graphql`
   }
 `;
 
-const MENU = ['JavaScript', 'React'];
+const MENU = ['JavaScript', 'React', 'Swift'];
 
 const useDocsNav = () => {
   const { allMdx } = useStaticQuery(QUERY);
@@ -74,6 +74,8 @@ const useDocsNav = () => {
         };
       }, {});
   };
+
+  console.log(getSections(), getContent());
 
   return getContent();
 };

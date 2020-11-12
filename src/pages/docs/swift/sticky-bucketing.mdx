@@ -1,7 +1,7 @@
 ---
 name: Sticky Bucketing
 menu: Swift
-route: /docs/swift/stickyBucketing
+route: /docs/swift/sticky-bucketing
 order: 5
 ---
 
@@ -12,15 +12,15 @@ Optionally add a storage layer when instantiating tesfy by conforming to the pro
 ```swift
 class TesfyStorage: TesfyStorable {
     var storage: [String: String]
-    
+
     init(storage: [String: String]? = [:]) {
         self.storage = storage ?? [:]
     }
-    
+
     func get(id: String) -> String? {
         return storage[id]
     }
-    
+
     func store(id: String, value: String?) {
         self.storage[id] = value
     }
