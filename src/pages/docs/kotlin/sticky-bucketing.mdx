@@ -1,0 +1,42 @@
+---
+name: Sticky Bucketing
+menu: Kotlin
+route: /docs/kotlin/sticky-bucketing
+order: 5
+---
+
+# Sticky Bucketing
+
+Optionally you could add a storage layer when instantiating the tesfy engine, there is an Interface called `Storage` which you are free to implement with any persistance layer.
+This layer could be whatever you would like (memory cache, android storage, 3rd party integrations, databases, etc). In this way even if allocation or attributes changes, the users defined will stick with the same variation.
+
+```kt
+val datafile = Datafile(
+  mapOf(
+    "experiment-1" to Experiment(
+      "experiment-1",
+      100,
+      listOf(
+        Variation(
+          "0", 50
+        ),
+        Variation(
+          "1", 50
+        )
+      ),
+      mapOf(
+        "==" to listOf(mapOf(
+          "var" to "countryCode"
+        ), "us")
+      )
+    )
+  ),
+  mapOf()
+)
+val userId = "4qz936x2-62ex"
+val attributes = mapOf("countryCode" to "us")
+val engine = Engine(datafile, userId, attributes, storage)
+val storage: Storage = StorageImpl()
+
+val variationId = engine.getVariationId("experiment-1", userId, attributes, storage) //  "0"
+```

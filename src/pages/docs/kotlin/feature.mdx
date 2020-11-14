@@ -1,0 +1,28 @@
+---
+name: Feature Flag
+menu: Kotlin
+route: /docs/kotlin/feature
+order: 3
+---
+
+# Feature Flag
+
+## Check feature
+
+Check if a feature is enabled for the specified userId when the engine was instantiated.
+
+```kt
+val featureId = "feature-1"
+
+tesfyEngine.isFeatureEnabled(featureId, null) // true
+```
+
+You could also specify a `userId` and `attributes`.
+
+```kt
+val userId = "676380e0-7793-44d6-9189-eb5868e17a86"
+val attributes = mapOf("countryCode" to "us")
+val featureId = "feature-1"
+
+tesfyEngine.isFeatureEnabled(featureId, userId, attributes) // true
+```

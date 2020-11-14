@@ -1,0 +1,40 @@
+---
+name: Experiment
+menu: Kotlin
+route: /docs/kotlin/experiment
+order: 2
+---
+
+# Experiment
+
+## Check variation
+
+Check which variation of an experiment is assigned to a user.
+
+```kt
+val experimentId = "experiment-1"
+
+tesfyEngine.getVariationId(experimentId, null) // "1"
+```
+
+A `userId` and `attributes` could be optionally supplied.
+
+```swift
+val experimentId = "experiment-2"
+val userId = "676380e0-7793-44d6-9189-eb5868e17a86"
+val attributes = mapOf("countryCode" to "us")
+
+tesfyEngine.getVariationId(experimentId, userId, attributes) // "1"
+```
+
+## Set forced variation
+
+Set a fixed variation for a given experiment. Helpful functionality if you want to do tests.
+
+```kt
+val experimentId = "experiment-1"
+val variationId = "3"
+
+tesfyEngine.setForcedVariation(experimentId: experimentId, variationId: variationId)
+tesfyEngine.getVariationId(experimentId: experimentId) // "3"
+```

@@ -1,0 +1,130 @@
+---
+name: Installation
+menu: Kotlin
+route: /docs/kotlin/installation
+order: 1
+---
+
+# Installation
+
+## Artifact
+
+Tesfy is available through [Maven Central](https://search.maven.org/artifact/io.tesfy/tesfy-kotlin). To install it, simply add the dependency depending on your build tool:
+
+### Gradle
+
+```kt
+implementation("io.tesfy:tesfy-kotlin:1.0")
+```
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>io.tesfy</groupId>
+  <artifactId>tesfy-kotlin</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
+## Initialization
+
+Once imported, instantiate the engine with a `datafile`, you can pass as an userId a fixed userId or `null` (it can be defined later), a Map<String, Any> with attributes,
+an optional implementation of the `storage` interface to enable sticky bucketing.
+
+```kt
+val datafile = Datafile(
+  mapOf(
+    "experiment-1" to Experiment(
+      "experiment-1",
+      100,
+      listOf(
+        Variation(
+          "0", 50
+        ),
+        Variation(
+          "1", 50
+        )
+      ),
+      mapOf(
+        "==" to listOf(mapOf(
+          "var" to "countryCode"
+        ), "us")
+      )
+    )
+  ),
+  mapOf()
+)
+val userId = "4qz936x2-62ex"
+val attributes = mapOf("countryCode" to "us")
+val engine = Engine(datafile, userId, attributes, storage)
+
+val variationId = engine.getVariationId("experiment-1", userId, attributes)
+```
+
+## Datafile creation
+
+When a datafile is initialised, you may create experiments inside it. To create an experiment you have to provide an audience, the audience field can be defined in 2 different ways.
+
+### Audience definition as Map
+
+To instantiate a Datafile using a Map for audience you could follow this piece of code:
+
+```kt
+val datafile = Datafile(
+  mapOf(
+    "experiment-1" to Experiment(
+      "experiment-1",
+      100,
+      listOf(
+        Variation(
+          "0", 75
+        ),
+        Variation(
+          "1", 25
+        )
+      ),
+      mapOf(
+        "==" to listOf(mapOf(
+          "var" to "countryCode"
+        ), "nl")
+      )
+    )
+  ),
+  mapOf()
+)
+```
+
+### Audience definition as String
+
+To instantiate a Datafile using a String for audience you could follow this piece of code:
+
+```kt
+Datafile(
+    mapOf(
+        "experiment-1" to Experiment(
+            "experiment-1",
+            100,
+            listOf(
+                Variation(
+                    "0", 30
+                ),
+                Variation(
+                    "1", 70
+                )
+            ),
+            """{ "==": [{ var: 'countryCode' }, ve]}"""
+        )
+    ),
+    mapOf()
+)
+```
+
+The string that you pass in the audience field have to be a properly defined JSONLogic
+
+## Considerations
+
+This version of the library is using Unsigned Integers from Kotlin and currently is in Beta,
+for more information please read the [following link](https://kotlinlang.org/docs/reference/basic-types.html#beta-status-of-unsigned-integers).
+
+According to our tests in all of our implementations for different languages, the results are exactly the same.
