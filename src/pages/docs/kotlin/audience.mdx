@@ -1,0 +1,18 @@
+---
+name: Audience
+menu: Kotlin
+route: /docs/kotlin/audience
+order: 4
+---
+
+# Audience
+
+Use attributes to target an specific audience by using [JsonLogic](http://jsonlogic.com/).
+
+```kt
+val userId = "676380e0-7793-44d6-9169-eb4208e17a86"
+val featureId = "feature-1"
+
+tesfyEngine.getVariationId(featureId, userId, mapOf("countryCode" to "ve")) // "0"
+tesfyEngine.getVariationId(featureId, userId, mapOf("countryCode" to "us")) // null
+```

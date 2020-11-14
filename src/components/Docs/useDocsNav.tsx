@@ -30,7 +30,7 @@ const QUERY = graphql`
   }
 `;
 
-const MENU = ['JavaScript', 'React', 'Swift'];
+const MENU = ['JavaScript', 'React', 'Swift', 'Kotlin'];
 
 const useDocsNav = () => {
   const { allMdx } = useStaticQuery(QUERY);
